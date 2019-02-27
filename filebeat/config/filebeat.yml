@@ -1,0 +1,12 @@
+filebeat.inputs:
+- type: log
+  enabled: true
+  paths:
+    - /var/log/access.log
+
+output.redis:
+   hosts: ["redis"]    #输出到redis的机器
+   port: 6379    #redis端口号
+   db: 1    #redis数据库的一个整数索引标识，redis不同于mysql有一个库的名字。redis总共0-15默认16个库。
+   timeout: 5    #连接超时时间
+   key: "systemlog"    #以default_list的keys传输到redis
